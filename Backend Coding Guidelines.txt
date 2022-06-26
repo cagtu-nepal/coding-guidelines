@@ -1,0 +1,427 @@
+﻿Backend Coding Guidelines
+Start Date: 14.03.2022
+─
+  
+
+Cagtu Nepal Pvt Ltd
+Buddhanagar, Kathmandu 
+Nepal
+
+
+
+
+
+
+Summary:
+The purpose of this document is to provide a basic outline of the coding standard for all Backend Developers at Cagtu.
+
+
+Version:
+
+
+Date
+	Details
+	Contributor
+	Version Code
+	14 March 2022
+	First Draft
+	Sabbir Shahi
+	0.1.0
+	18 March 2022
+	Added Celery
+	Sabbir Shahi
+	0.1.1
+	29 March 2022
+	Added Development Approach, Methodology, Bug life cycle, Defect Report, Comments on Code, Reporting time, Project Management tools, Internationalisation.
+	Sabbir Shahi
+	0.1.2
+	30 March
+	Added draw.io, requirements before coding, docker-engine
+	Sabbir Shahi
+	0.1.3
+	1 April
+	Added Comment, Indent style, Line length, Naming conventions under PEP 8
+
+
+	Sabbir Shahi 
+	0.1.4
+	27 April
+	Added Container Registry, Gitlab wiki and Readme
+	Sabbir Shahi
+	0.1.5
+	Jun 14
+	Added API Versioning, 
+	
+
+	
+
+	Table Of Contents
+
+
+Development Approach:        4
+Development Methodology:        4
+OS and Desktop Environment:        4
+Integrated Development Environment:        5
+Git and GitLab:        5
+GitLab Wiki and Readme        5
+Docker:        5
+Container Registry:        6
+Virtual Environment:        6
+Requirements Before Coding:        6
+Design Tool:        7
+PEP-8:        8
+Python:        9
+Django:        9
+Comments on Code:        9
+Django Rest Framework:        10
+API Documentations:        10
+API Versioning:        11
+Database:        11
+Websocket and Webhooks:        12
+Celery (Task scheduling):        12
+SOLID and DRY Principles:        12
+Testing and QA:        12
+Troubleshooting and Debugging:        13
+Bug Life Cycle:        13
+Defect Report:        14
+Reporting Time:        14
+Project Management Tools:        14
+Internationalisation (i18n):        15
+Coding Guidelines and Technologies to follow at Cagtu for Backend
+Following technologies and methodologies are to be followed by backend developers in order to maintain quality and compliance at cagtu.
+
+
+1. Development Approach:
+1. Develop
+2. Validate on local machine
+3. Deploy to test server
+4. Validate and QA
+5. Refactor
+6. Go to step a
+7. If success, release to production
+
+
+2. Development Methodology:
+As part of the development methodology, we will be implementing Agile scrum. Following the agile methodology will bring the concept of sprint planning. The team lead will make the sprint plan and assign tasks accordingly. The developers must perform the tasks within the boundary set by that sprint planning.
+
+
+3. OS and Desktop Environment:
+Ubuntu:
+We will be using the Ubuntu operating system as it provides a better option for privacy and security. You can download the Ubuntu iso file from here.
+
+
+Requirements
+1. OS Version: Ubuntu 20.04 Lts or Higher
+2. GNOME Desktop Environment
+
+
+4. Integrated Development Environment:
+IDE enables programmers to simplify the process of writing a computer program.
+   1. Visual Studio Code
+      1. Version : 1.65 or higher
+      2. Plugins and Extensions
+         1. Docker
+         2. GitLens
+         3. Python
+         4. Draw.io
+
+
+5. Git and GitLab:
+We will be using git as our version control system and Gitlab as a management platform for git repositories. The project manager will provide access to the repository for the relative project. None of the access should be shared with anybody other than the people who have been assigned to it.
+        
+We will use the "Git Flow" methodology in git. If you are not familiar with it, please learn more about it here.
+        Requirements:
+1. Git Flow version: 1.12.3 or higher
+        
+6. GitLab Wiki and Readme
+We will be creating a Gitlab wiki and readme file which allows projects to be easily developed and also capture documentation and guidance for its project. We will be creating a markdown file and pushing it to git. You can read more about markdown files here. Wiki should contain all necessary documentation, design and problem statements as well.
+
+
+7. Docker:
+Docker Containers are a standardised unit of software that allows developers to isolate their app from its environment, solving the “it works on my machine” headache. Learn more about it here. 
+Useful Topics related to Docker are Docker Engine and Docker Compose.
+Requirements:
+1. Docker version: 20.10 or higher
+        Docker-compose cheat sheet commands:
+1. docker-compose start
+2. docker-compose stop
+3. docker-compose pause
+4. docker-compose unpause
+5. docker-compose build
+6. docker-compose up
+7. docker-compose down
+
+
+8. Container Registry:
+For production we will use the image to deploy rather than building the whole system with docker which will speed up the deployment process. So, we need to push the required images with proper tag names. 
+
+
+Commands:
+sudo docker commit -m "<msg>" <container_id> <registry_link>:<tag>
+sudo docker push <registry_link>:<tag> 
+
+9. Virtual Environment:
+We will be using virtual environment, a tool to create separate python virtual environments for distinct projects to keep their dependencies separate. Learn more about it here.
+Requirements:
+1. Virtual Environment version: 20.13.1 or higher
+        Virtual environment command:
+1. Virtualenv <environment_name>  (e.g: venv)
+2. Source <environment_name>/bin/activate
+3. deactivate
+
+
+10. Requirements Before Coding:
+1. User Flow:
+When working in groups, it's easy to get caught up in features, technical jargon, or personal preferences, leaving the user out of the picture. We'll be designing user flows to give you a bird's-eye view of the product. User flows are also essential for communicating design to product managers, stakeholders, and developers. Learn more about it here.
+
+
+2. Technical specification and wiki preparation:
+Technical specifications and a wiki must be prepared in order to provide an accurate estimate of the effort required by understanding the project as thoroughly as possible from the start. It also aids in identifying any risks or areas that require further investigation. For wiki, a markdown file must be created and pushed to GitLab also known as GitLab wiki. You can watch this video to write your first wiki.
+
+
+3. Database Schema:
+Database schemas are useful because they assist developers in visualising how a database should be structured. Having a schema, however, provides developers with a clear point of reference for what tables and fields a project contains. 
+Entity Relationship Diagram (ERD) will be used to design the database schema for our projects.
+
+
+4. UML Diagrams:
+For communicating the model with our product managers, stakeholders, and developers, we will create a series of UML Diagrams as a sketch of our projects. Get to know about all UML diagrams here.
+
+
+Every document that is created must be pushed to git before the end of the day even if it is partially completed. The above points will be validated by the project manager, stakeholders and developers before the development starts.
+
+
+11. Design Tool:
+We will be using StarUML, a modelling tool for creating ERD, Userflow diagrams, Use Case diagrams and other necessary diagrams.
+1. StarUML:
+We will be using StarUML, a modelling tool for creating ERD, Userflow diagrams, Use Case diagrams and other necessary diagrams.
+   1. Version: 4.1.6 or higher
+
+
+2. Draw.io:
+We will also be using draw.io, a useful, free diagramming service tool which also has strong collaboration features. We can also integrate draw.io with Visual Code (IDE) and use it as a diagram tool. You can watch this video to integrate draw.io with Visual Code.
+
+
+3. Figma: 
+Figma is used to design the website before the project gets started. We will be using Figma for wireframes and UI/UX designs to understand the project design.
+
+
+12. PEP-8:
+PEP-8 is a document that provides guidelines and best practices for writing python code. We will follow the PEP 8 guidelines to improve the readability and consistency of Python code. Read the whole document here.
+1. Comment conventions:
+Comments that contradict the code are worse than no comments. Always make a priority of keeping the comments up-to-date when the code changes. Python coders from non-English speaking countries: please write your comments in English, unless you are 120% sure that the code will never be read by people who don’t speak your language. 
+Explore more about it here.
+
+
+2. Indentation conventions:
+Use 4 spaces per indentation level. Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent. Spaces are the preferred indentation method. Tabs should be used solely to remain consistent with code that is already indented with tabs. Explore more about it here.
+
+
+3. Line length conventions:
+Limit all lines to a maximum of 79 characters. For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to 72 characters. Explore more about it here.
+
+
+4. Naming conventions:
+The naming conventions of Python’s library are a bit of a mess, so we’ll never get this completely consistent – nevertheless, here are the currently recommended naming standards.
+
+
+
+
+
+
+
+
+
+
+13. Python:
+For the programming language we will be using python.
+Requirements:
+1. Python version: 3.8 or higher
+
+
+14. Django:
+As the standard python framework we will be using Django.
+Requirements: 
+1. Django version: greater than 2.2 lower than 4.0
+
+
+15. Comments on Code:
+Use comments only to add context or explain choices that cannot be expressed through thoughtful naming, structure or the context of operations. Comments will most commonly be used by another developer, user or ourselves down the line.
+
+
+Comments are the last thing developers will look at when everything has gone wrong. It's like getting a new gadget, the last thing you're going to do is actually look at the instructions if you're a geek.
+
+
+
+
+
+
+class GetCountryFromIP(APIView): # Ip address is converted to country using geoip2
+   def post(self, request):
+      ips_obj = IpModel.objects.all()
+           reader=geoip2.database.Reader('./GeoLite2.mmdb') #geoip2 database is initialised
+      for obj in ips_obj:
+           try:
+              geo = reader.city(obj.ip) # city details read from geoip2
+              country = geo.country.name
+              city = geo.city.name
+              obj.country=country
+              obj.city=city
+              obj.save()
+           except:
+              country = None
+              city = None
+              obj.country=country
+              obj.city=city
+              obj.save()
+       return Response({'status':'Success'})
+
+
+16. Django Rest Framework:
+We will be using Django Rest Framework, a powerful and flexible toolkit for building Web APIs. We will not be using Generic views in our project, instead base APIView will be used. We will also be creating custom permissions to authenticate users. Learn more about it here.
+Requirements:
+1. DRF version: 3.13 or higher
+
+
+17. API Documentations:
+To properly document the RESTful APIs expressed using JSON, we will be using Swagger and Postman.
+   2. Requirements
+      1.  Swagger (Mandatory)
+         1. Version: Drf-spectacular API 3.0
+      2. Postman (Optional)
+         1. Version: 9.14.0 or higher
+
+
+18. API Versioning:
+Versioning APIs is one way to deal with this inconsistency. When you implement changes to the code, a proper API versioning strategy ensures that the API version remains functional. It also means that API users who are using older versions of the API will not be affected by the change. Consumers will have plenty of time to update their integrations if changes are communicated effectively.
+This document explains how to use API versioning in your DRF project.
+
+
+
+
+19. Database:
+To store large amounts of data, a powerful object-relational database system is required.
+
+
+        Requirements:
+   3. PostgresQL
+      1. Version: 14.2 or higher
+      2. GUI tool:
+         1. Pg-admin: to interact with the Postgres database 
+   4. MySQL
+      1. Version: 8.0 or higher
+      2. GUI tool:
+         1. Phpmyadmin
+         2. Beekeeper
+         3. HeidiSQL
+
+
+   5. Redis:
+We will be using redis for implementing a highly available in-memory cache to decrease data access latency, increase throughput, and ease the load off the relational database and application.
+      3. Version: 6.2.6 or higher
+
+
+
+
+20. Websocket and Webhooks:
+We will be using websockets through Django Channels or webhooks to manage the communication between the client and server without them having to reload their browsers.
+
+
+21. Celery (Task scheduling):
+We will be using celery to schedule and complete tasks in a given period of time. 
+Requirements:
+1. Redis: a message broker
+   1. Version: 4.1.4
+2. Celery:
+   1. Version: 5.2.3
+3. Django-celery-beat
+   1. Version: 2.2.1
+
+
+
+
+
+
+22. SOLID and DRY Principles:
+Since we will be using object-oriented programming language, it is mandatory to know about SOLID principles. Learn more about SOLID principles here.
+Furthermore, in order to improve the efficiency of the programs that will be developed, we will be following the DRY principle.
+
+
+23. Testing and QA:
+Testing and QA helps to save costs by detecting and fixing bugs and flaws early in the development.
+
+
+   6. Unit Testing:
+Before code is deployed, we will be performing unit testing to ensure that it meets quality standards. Unit testing saves time and money during the product development life cycle and helps developers write better code more efficiently. Learn more about it here.
+
+
+   7. Tools:
+      1. Selenium:
+Selenium is a free (open-source) automated testing framework for validating web applications across browsers and platforms.
+         4. Version: 4 or higher
+
+
+      2. Pytest:
+Pytest is a Python-based testing framework. It's primarily used to create API test cases.
+         5. Version: 7.1.0 or higher
+
+
+
+
+   8. Design/ Concept Validation
+      1. User flow diagram 
+      2. ERD (DB Schema)
+      3. API Testing
+         1.  Swagger 
+            1. Version: 2.0 or higher
+         2. Postman
+            1. Version: 9.14.0 or higher
+
+
+
+
+24. Troubleshooting and Debugging:
+Troubleshooting and debugging are two concepts that programmers must understand and distinguish. You must not only understand the two terms, but also understand how they differ and what characteristics they share. Debugging will consume more time for programmers than troubleshooting. However, their increased operational responsibilities will require them to troubleshoot more frequently. Learn more about it here.
+
+
+25. Bug Life Cycle:
+In software testing, the Bug Life Cycle is the specific set of states that a bug goes through throughout its life. The goal of the bug life cycle is to easily coordinate and communicate current status of defect which changes to various assignees and make the bug fixing process systematic and efficient.
+  
+
+Figure 1. Bug Life Cycle Visual Representation
+
+
+Here's a video to know about it better. 
+
+
+26. Defect Report: 
+A defect report is a document that contains concise details about what defects have been identified, what action steps cause the defects to appear, and what the expected results are instead of the application displaying an error (defect) while performing specific step-by-step actions. The purpose of defect reports is to assist developers in quickly identifying and correcting defects. Defect reports are typically generated by the Quality Assurance team as well as end-users (customers). Learn more about it here. 
+
+
+
+
+27. Reporting Time:
+The weekly deliverable report must be submitted by 9 AM every Thursday. The report must include the tasks from Thursday of previous week to Wednesday of running week.
+ 
+28. Project Management Tools: 
+A project management tool allows you to quickly create a task hierarchy for efficient and effective completion. It also allows you to specify which actions are sequential and which tasks are interdependent. As a result, the team's task becomes easier to complete.
+
+
+Jira will be used for sprint planning of the team.
+
+
+   9. Trello
+Learn more about it here.
+
+
+   10. Jira
+Learn more about it here. 
+
+
+29. Internationalisation (i18n):
+Since we are an international company and have an aim of expanding our product over various countries, the developers need to maintain the standards of internationalisation. Learn more about it here.
+
+
+
+
+/
