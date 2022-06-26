@@ -1,0 +1,30 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 120
+
+# intellij- based IDEs has more features example:
+# Note: These settings are only available in IntelliJ based IDEs
+ij_html_add_new_line_before_tags = 2
+ij_typescript_align_imports = true
+
+
+# you can set settings for different files example Typescript and javascript
+[*.{t,j}s]
+# or [*.{ts, js}]
+indent_size = 2
+tab_width = 2
+
+[*.json]
+tab_width = 2
+indent_style = tab
+indent_size = 2
+
+
