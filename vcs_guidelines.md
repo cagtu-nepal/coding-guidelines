@@ -6,6 +6,12 @@
     - [Repository Management](#repository-management)
         - [Namespace Management](#namespace-management)
         - [Permission Management](#permission-management)
+    - [Git Best Practices](#git-best-practices)
+        - [Branching and merging](#branching-and-merging)
+        - [Committing](#committing)
+            - [Rules for committing](#rules-for-committing)
+            - [Examples of good commit messages](#examples-of-good-commit-messages)
+    - [FAQs](#faqs)
 
 ## Introduction to Version Control System
 
@@ -149,3 +155,117 @@ The group/project hierarchy would be as follows
             - Cipher API (`cipher` Backend Devs)
             - Cipher UI (`cipher` Frontend Devs)
             - Cipher Mobile (`cipher` Mobile Devs)
+
+## Git Best Practices
+
+### Branching and merging
+
+### Committing
+
+The git commit should follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) structure.
+It should contain a title or summary, and optional body text
+1. title or summary
+    1. should include `type`, `optional scope`, and `description` of the commit message
+    2. recommended: max 50 characters
+    3. limit: 72 characters
+2. body (if needed only)
+    1. recommended: max 72 characters
+    2. limit: no
+
+**Commit Types**:
+- `build`: a commit that affects the build system or external dependencies
+- `ci`: a commit that changes the CI configuration and files
+- `docs`: a commit that adds/changes only documentation to the existing code
+- `feat`: a commit that adds/removes new feature to the project
+- `fix`: a commit that fixes previous issues/bugs (if available mention issue number)
+- `perf`: a commit that improves performance
+- `refactor` / `style`: a commit that neither adds new feature nor fixes a bug (Eg: whitespace, formatting, etc.)
+- `revert`: a commit that reverts previous commit (should include previous hash)
+- `test`: a commit that adds or corrects existing tests
+
+**Commit Scopes**:
+
+The scope should mention where the code is changed. Scope generally mentions the name of app, module, or a package.
+For example if we're working on authentication module, the name of scope might be `auth`.
+
+> **Note**:  useing `!` after commit type or scope will draw attention that the commit contains **BREAKING CHANGES**
+
+**Commit message structure:**
+```
+<type>(<scope>): commit message
+
+optional body
+
+optional footer
+```
+#### Rules for committing
+1. Write meaningful commit messages
+    - do not commit with texts like `Dummy Commit`, `test commit`, etc.
+    - if you have such commits, you can rebase your commits before sending your code to review
+2. Commit early, commit often, and commit with clean and purposeful message
+    - Do not wait a whole day to commit.
+    - As soon as you complete your task (1 purpose), you should commit
+    - do not commit for multiple tasks, otherwise rejecting one feature rejects another too.
+3. Don't commit generated files
+    - Generated files such as `**lock`, `__**cache__`, etc. should be avoided since these files
+      generates differently on different systems and causes conflict when merging with others' codes.
+4. Do not forget to add `issue numbers` or `ticket numbers` so that it can be tracked easily.
+5. Mention the type of commit Example: `feature`, `bugfix`, `documentation`, `test`, etc.
+
+#### Examples of good commit messages
+
+
+**Example Commit 1**: simple commit message
+```
+feat: add product list API
+```
+
+**Example Commit 2**: simple commit message with scope **(Recommended)**
+```
+feat(product): add product list API
+```
+
+**Example Commit 3**: commit message with commit body
+```
+feat(product): add model product
+
+adds functionality of product CRUD tools by which inventory/store can be managed.
+```
+
+**Example Commit 4**: commit message with body, and issue id
+```
+fix(transaction): removes 504 error when purchasing multiple items
+
+fixes bug #12345
+```
+
+**Example Commit 5**: commit with warning
+```
+feat(stock)!: add stock models and APIs
+
+BREAKING: existing products in database should have the stock detail otherwise product get api results in 404 errors.
+```
+
+## FAQs
+
+1. How can I commit with commit title and body?
+
+   _We can commit title as a regular commit message followed by another `-m` argument for a commit body._
+   Example:
+   ```shell
+   $ git commit -m "feat(product): add products model" -m "my description goes here"
+
+   $
+   ```
+
+   **Note:**: _We can use any number of `-m` flags for adding new lines to the commit._
+
+   Alternatively, we can also use enter key if we start our message with double quotes. with this method the terminal automatically adds `>` or `>>` key depending on the operating system to show that the current statement is not terminated.
+
+   Example:
+   ```shell
+   $ git commit -m "feat(product): add products model
+   >> my description goes here."
+
+   $
+   ```
